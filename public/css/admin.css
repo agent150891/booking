@@ -1,0 +1,42 @@
+.pointer{
+    cursor: pointer;
+}
+
+span.plus{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background: url('../img/plus.svg');
+}
+
+span.minus{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background: url('../img/minus.svg');
+}
+
+span.re{
+	width: 22px;
+	height: 20px;
+	display: inline-block;
+	background: url('../img/re.png');
+}
+
+td.comment{
+    width: 300px;
+    position: relative;
+}
+
+td.comment p{
+    max-height: 50px;
+    overflow: hidden;
+}
+
+td.comment p:hover{
+    max-height: none;
+    overflow: visible;
+    z-index: 2;
+    position: absolute;
+    background-color: #F5F8FA;
+}

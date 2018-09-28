@@ -1,0 +1,4100 @@
+@font-face{
+	font-family: 'OpenSans Light';
+	src: url('fonts/OpenSans-Light.ttf');
+}
+
+@font-face{
+	font-family: 'OpenSans Bold';
+	src: url('fonts/OpenSans-Bold.ttf');
+}
+
+@font-face{
+	font-family: 'OpenSans Regular';
+	src: url('fonts/OpenSans-Regular.ttf');
+}
+
+$w-color: #F7A010;
+$i-color: #399DD0;
+$s-color:#97CB52;
+$main-width:1170px;
+
+@mixin flight{
+	/*font-family: 'Rubik-Light',sans-serif;*/
+	font-family: 'OpenSans Light',Arial, sans-serif;
+}
+
+@mixin fmedium{
+	/*font-family: 'Rubik-Medium',sans-serif;*/
+	font-family: 'OpenSans Bold',Arial, sans-serif;
+}
+
+@mixin fregular{
+	/*font-family: 'Rubik-Regular',sans-serif;*/
+	font-family: 'OpenSans Regular',Arial, sans-serif;
+}
+
+@mixin check{
+	width:0;
+	height:0;
+	&::after{
+		content:'';
+		display:block;
+		width: 20px;
+		height:20px;
+		border: #B5B5B5 1px solid;
+		border-radius: 5px;
+		color:#333;
+		margin-left: -20px;
+		margin-top: -5px;
+		background-color: #fff;
+	}
+	&:checked::after{
+		background-color: $s-color;
+	}
+}
+
+@mixin plus{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background: url('../img/plus.svg');
+}
+
+@mixin minus{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background: url('../img/minus.svg');
+}
+
+@mixin re{
+	width: 22px;
+	height: 20px;
+	display: inline-block;
+	background: url('../img/re.png');
+}
+
+@mixin radion{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background: url('../img/check_in.svg');
+}
+
+@mixin radioff{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background: url('../img/check_out.svg');
+}
+
+@mixin inp{
+	width:170px;
+	@include flight;
+	padding-left: 18px;
+}
+
+@mixin pop{
+	height: 28px;
+	position: absolute;
+	top: 85px;
+	padding:3px 10px;
+	background-color: #97CB52;
+	border-radius:10px;
+	font-family: 'OpenSans Light',sans-serif;
+	color:#fff;
+	display: none;
+	box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+	width: inherit;
+	&:after{
+		content:'';
+		display: block;
+		border: 8px transparent solid;
+		border-bottom: 8px #97CB52 solid;
+		width:0;
+		height: 0;
+		margin-top: -35px;
+	}
+}
+
+@mixin end{
+	&:after{
+		content:'';
+		display: block;
+		clear:both;
+	}
+}
+
+@mixin but{
+	@include fmedium;
+	font-size: 14px;
+	display: block;
+	width: 100%;
+	margin-top: 8px;
+	height: 30px;
+	line-height: 1;
+	background-color: #E7E7E7;
+	color: #828282;
+	&:hover{
+		background-color: #F7A010;
+		color: #fff;
+	}
+	&:active{
+		background-color: #399DD0;
+		color: #fff;
+	}
+}
+
+h1, h2, h3{
+	font-weight: bold;
+}
+
+.btn-warning{
+	background-color: $w-color;
+}
+
+.btn-success{
+	background-color: $s-color;
+}
+
+.btn-info{
+	background-color: $i-color;
+}
+
+body{
+	background-color: #E7E7E7;
+	@include fmedium;
+}
+
+div.green{
+	width:230px;
+	height: 0;
+	border-bottom: #97CB52 2px solid;
+	display: inline-block;
+		}
+div.grey{
+	width:540px;
+	height: 0;
+	border-top: #D1D1D1 1px solid;
+	padding-top: -2px;
+	margin-left: -3px;
+	display: inline-block;
+}
+
+header{
+	@include end;
+	max-width: 100%;
+	background-color: #fff;
+	>div{
+		width:$main-width;
+		margin:0 auto;
+		button.btn-sm{
+			width: 199px;
+		}
+		input[type='text']{
+			@include inp;
+			border: 1px #ABC981 solid;
+		}
+		div.input-group{
+			width:270px;
+			input[type='submit']{
+				width:100px;
+			}
+			input[type='text']{
+				@include inp;
+				float: left;
+			}
+		}
+
+		>a{
+			margin:2px 0 8px 15px;
+		}
+		&>a,&>div,&>nav{
+			float: left;
+		}
+		>div:first-of-type,>nav{
+			margin-top: 38px;
+		}
+		>nav:first-of-type{
+			margin-left:84px;
+			button:last-of-type{
+				margin-left:28px;
+			}
+			button{
+                a, a:hover, a:visited{
+                    color: #fff;
+                    text-decoration: none;
+                    display: inline-block;
+                    width: 100%; height:100%;
+                }
+				font-size: 14px;
+				height: 30px;
+				line-height: 1.2em;
+			}
+            button.link{
+                padding: 0;
+                a, a:hover, a:visited{
+                    color: #fff;
+                    text-decoration: none;
+                    display: inline-block;
+                    width: 100%; height:100%;
+                    line-height: 2;
+                }
+            }
+		}
+		>div:first-of-type{
+			margin-left: 128px;
+		}
+		div.lang{
+			margin: 4px 0 0 65px;
+			button{
+				font-size: 12px;
+				color: #fff;
+				margin-top: 8px;
+				display: block;
+				width:30px;
+				height:20px;
+				border:none;
+			}
+		}
+	}
+}
+
+div.slider{
+	position: relative;
+	background: url('../img/header.jpg');
+	height: 350px;
+	background-size: cover;
+	dialog{
+		position: absolute;
+		background-color: #fff;
+		left: 50%;
+		margin-left: -435px;
+		box-shadow: 0 0 10px rgba(0,0,0,0.9);
+		padding: 0px;
+		color: #2C2C2C;
+		max-width: 870px;
+		width:100%;
+		height: 190px;
+		border: 1px #C7C7C7 solid;
+		margin-top: 62px;
+		div.stick{
+			border-left:1px #C7C7C7 solid;
+			width: 1px;
+			height: 120px;
+			margin: 32px 0px 30px 0;
+			float:left;
+		}
+		div.filter{
+			margin: 0;
+			padding: 30px 30px 0 30px;
+			float:left;
+			select{
+				@include inp;
+				margin-top: 4px;
+			}
+			label{
+				font-size: 14px;
+				@include fmedium;
+				font-weight: 500;
+			}
+
+			div.check{
+				label{
+					display: block;
+					margin-bottom: 3px;
+					position: relative;
+				}
+				input[type='checkbox']{
+					display: none;
+				}
+				input[type='checkbox']+span{
+					display: block;
+					display:block;
+					width: 20px;
+					height:20px;
+					border: #B5B5B5 1px solid;
+					border-radius: 5px;
+					color:#333;
+					position: absolute;
+					right:0;
+					top:0;
+				}
+				input[type='checkbox']:checked+span{
+					background-color: $s-color;
+				}
+				@include end;
+				margin: 0;
+			}
+			#beds{
+				margin-bottom: 15px;
+			}
+			h3{
+				font-size: 14px;/*12px*/
+				@include fmedium;
+				font-weight: 500;
+				text-align: center;
+				margin: 5px 0;
+			}
+			h2{
+				font-size: 34px;
+				text-align: center;
+				font-weight: bold;
+				margin: 15px 0;
+			}
+			button{
+				width:170px;
+				border:none;
+				display: block;
+				margin: 10px auto;
+				color:#000;
+			}
+		}
+		div.filter1{
+			max-width: 218px;
+			padding-left: 21px;
+		}
+		div.filter2{
+			max-width: 229px;
+		}
+		div.filter3{
+			padding-left: 40px;
+			max-width: 199px;
+			width:100%;
+		}
+		div.filter4{
+			max-width: 218px;/*219*/
+			padding-left: 19px;
+		}
+	}
+	>button{
+		position: absolute;
+		display: block;
+		bottom: 34px;
+		left:50%;
+		margin-left: -115px;
+		width:230px;
+		height: 30px;
+		border: 1px #C7C7C7 solid;
+		border-radius: 5px;
+		background-color: #fff;
+		&:hover{
+			background-color: #ccc;
+		}
+	}
+	@include end;
+
+}
+
+div.slider.other {
+	height: 200px;
+	>dialog{
+		height: 130px;
+		margin-top: 35px;
+		padding: 30px;
+		h2{
+			margin:0;
+			@include fmedium;
+			font-size: 24px;
+		}
+	}
+	form{
+		margin-top: 10px;
+		input[type="submit"]{
+			width: 160px;
+			color: #000;
+		}
+		input[type='text']{
+			@include flight;
+		}
+	}
+}
+
+
+ol.path{
+	padding: 0;
+	margin: 0;
+	li{
+		font-size: 12px;
+		@include flight;
+		line-height: 1.833;
+		display: inline;
+		list-style: none;
+		&:after{
+			content: '/\00a0';
+			margin-left: 5px;
+		}
+		&:last-child{
+			color: #50A7D3;
+			&:after{
+				content: '';
+			}
+		}
+		a{
+			color: #000;
+			&:visited{
+				color: #000;
+			}
+			&:hover{
+
+			}
+		}
+	}
+}
+ol.right{
+	text-align:right;
+}
+
+div#booking{
+	@include flight;
+	font-size: 14px;
+	text-align: center;
+	width:245px;
+	height: 180px;
+	//border: 1px #555 solid;
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+	table{
+		/*border-collapse: collapse;*/
+		empty-cells: show;
+		border-spacing: 1px;
+		tbody{
+
+		}
+		tr{
+
+				padding: 0;
+				margin: 0;
+			th{
+				background-color: #9BC650;
+				width: 35px;
+				height: 30px;
+				color: #fff;
+				text-align: center;
+				font-weight: normal;
+			}
+			td{
+				background-color: #CFE0A6;
+				width: 35px;
+				height: 30px;
+				color: #000;
+				text-align: center;
+				font-weight: normal;
+				border: 1px solid #B7C793;
+				cursor: pointer;
+				&:hover{
+					background-color: #399DD0;
+				}
+				&.book{
+					background-color: yellow;
+				}
+			}
+		}
+	}
+}
+
+div#view_feed{
+	div.modal-header{
+		border-bottom: none;
+		padding: 15px 15px 0 15px;
+	}
+	h4.modal-title{
+		@include fmedium;
+		font-size: 30px;
+		text-align: center;
+		color: #399DD0;
+	}
+	button.close{
+		color: #97CB52;
+		@include fmedium;
+		font-weight: 900;
+		font-size: 30px;
+		opacity: 0.5;
+		margin-top: -10px;
+	}
+	div.modal-body{
+		p{
+			@include flight;
+			font-size: 16px;
+			color: #000;
+			border: 1px #ADADAD solid;
+			border-radius: 1px;
+			margin-bottom: 10px;
+			padding: 15px 10px;
+		}
+		p:first-of-type{
+			height: 200px;
+			overflow-y: scroll;
+			span.plus{
+				@include plus;
+                margin: 0 10px -5px 10px;
+			}
+			span.minus{
+				@include minus;
+                margin: 0 10px -5px 10px;
+			}
+            span.re{
+				@include re;
+                margin: 0 10px -5px 10px;
+			}
+		}
+		p:last-of-type{
+			height: 140px;
+			overflow-y: scroll;
+			span.re{
+				@include re;
+			}
+		}
+	}
+	div.modal-footer{
+		border-top: none;
+		padding: 0 15px 15px 15px;
+		text-align: center;
+		button{
+			@include fregular;
+			font-size: 14px;
+			padding: 2px 12px;
+			width: 170px; height: 30px;
+			border: 2px #97CB52 solid;
+			border-radius: 4px;
+			color: #97CB52;
+			line-height: -0.5;
+			background-color: #fff;
+			&:hover{
+				color: #fff;
+				background-color: #97CB52;
+			}
+			i{
+				font-size: 17px;
+				font-weight: 900;
+				line-height: 14px;
+				margin-bottom: -3px;
+				display: inline-block;
+			}
+			&:last-of-type{
+				margin-left: 30px;
+			}
+		}
+	}
+}
+
+div#modal_delete_hotel{
+    div.modal-body{
+        width: 100%;
+        max-width: 355px;
+        margin: 5px auto 30px auto;
+        padding: 0;
+        h4{
+            width: 100%;
+        }
+    }
+    div.modal-footer{
+        @include end;
+        width: 100%;
+        max-width: 350px;
+        margin: 10px auto;
+        padding: 0;
+        button:first-of-type{
+            float: left;
+            margin:0;
+            width: 150px;
+        }
+        a:last-of-type{
+            display: inline-block;
+            float: right;
+            margin:0;
+        }
+    }
+}
+
+div#view_feed_empty{
+	div.modal-header{
+		border-bottom: none;
+		padding: 15px 15px 0 15px;
+	}
+	h4.modal-title{
+		@include fmedium;
+		font-size: 30px;
+		text-align: center;
+		color: #399DD0;
+	}
+	button.close{
+		color: #97CB52;
+		@include fmedium;
+		font-weight: 900;
+		font-size: 30px;
+		opacity: 0.5;
+		margin-top: -10px;
+	}
+	div.modal-body{
+		p{
+			@include flight;
+			font-size: 16px;
+			color: #000;
+			border: 1px #ADADAD solid;
+			border-radius: 1px;
+			margin-bottom: 10px;
+			padding: 15px 10px;
+		}
+		p:first-of-type{
+			height: 400px;
+			overflow-y: scroll;
+			span.plus{
+				@include plus;
+                margin: 0 10px -5px 10px;
+			}
+			span.minus{
+				@include minus;
+                margin: 0 10px -5px 10px;
+			}
+            span.re{
+				@include re;
+                margin: 0 10px -5px 10px;
+			}
+		}
+	}
+	div.modal-footer{
+		border-top: none;
+		padding: 0 15px 15px 15px;
+		text-align: center;
+		button{
+			@include fregular;
+			font-size: 14px;
+			padding: 2px 12px;
+			width: 170px; height: 30px;
+			border: 2px #97CB52 solid;
+			border-radius: 4px;
+			color: #97CB52;
+			line-height: -0.5;
+			background-color: #fff;
+			&:hover{
+				color: #fff;
+				background-color: #97CB52;
+			}
+			i{
+				font-size: 17px;
+				font-weight: 900;
+				line-height: 14px;
+				margin-bottom: -3px;
+				display: inline-block;
+			}
+			&:last-of-type{
+				margin-left: 30px;
+			}
+		}
+	}
+}
+
+div#view_feed_re{
+	div.modal-header{
+		border-bottom: none;
+		padding: 15px 15px 0 15px;
+	}
+	h4.modal-title{
+		@include fmedium;
+		font-size: 30px;
+		text-align: center;
+		color: #399DD0;
+	}
+	button.close{
+		color: #97CB52;
+		@include fmedium;
+		font-weight: 900;
+		font-size: 30px;
+		opacity: 0.5;
+		margin-top: -10px;
+	}
+	div.modal-body{
+		p{
+			@include flight;
+			font-size: 16px;
+			color: #000;
+			border: 1px #ADADAD solid;
+			border-radius: 1px;
+			margin-bottom: 10px;
+			padding: 15px 10px;
+		}
+		textarea{
+            width: 500px;
+            height: 400px;
+            resize: none;
+            overflow-y: scroll;
+            margin: 0 33px;
+        }
+	}
+	div.modal-footer{
+		border-top: none;
+		padding: 0 15px 15px 15px;
+		text-align: center;
+		button{
+			@include fregular;
+			font-size: 14px;
+			padding: 2px 12px;
+			width: 170px; height: 30px;
+			border: 2px #97CB52 solid;
+			border-radius: 4px;
+			color: #97CB52;
+			line-height: -0.5;
+			background-color: #fff;
+			&:hover{
+				color: #fff;
+				background-color: #97CB52;
+			}
+			i{
+				font-size: 17px;
+				font-weight: 900;
+				line-height: 14px;
+				margin-bottom: -3px;
+				display: inline-block;
+			}
+			&:last-of-type{
+				margin-left: 30px;
+			}
+		}
+	}
+}
+
+div.add-hotel{
+    @mixin small{
+        @include flight;
+        font-size: 13px;
+        font-weight: normal;
+        color: #000;
+    }
+    @mixin radio{
+        @include flight;
+        font-size: 16px; font-weight: normal;
+        color: #000;
+        label{
+            font-size: 14px; font-weight: normal; color: #000;
+            input[type='radio']{
+                display: none;
+            }
+            input[type='radio']+div{
+                @include radioff;
+            }
+            input[type='radio']:checked+div{
+                @include radion;
+            }
+        }
+    }
+    @mixin button{
+        @include fregular;
+        font-size: 14px;
+        padding: 2px 12px;
+        width: 170px; height: 30px;
+        border: 2px #97CB52 solid;
+        border-radius: 4px;
+        color: #97CB52;
+        line-height: -0.5;
+        background-color: #fff;
+        &:hover{
+            color: #fff;
+            background-color: #97CB52;
+        }
+        i{
+            font-size: 17px;
+            font-weight: 900;
+            line-height: 14px;
+            margin-bottom: -3px;
+            display: inline-block;
+        }
+    }
+    $green: #97CB52;
+    $grey: #A6A6A6;
+    div.modal-header{
+		border-bottom: none;
+		padding: 15px 15px 0 15px;
+	}
+	h4.modal-title{
+		@include fmedium;
+		font-size: 30px;
+		text-align: center;
+		color: #399DD0;
+	}
+	button.close{
+		color: #97CB52;
+		@include fmedium;
+		font-weight: 900;
+		font-size: 30px;
+		opacity: 0.5;
+		margin-top: -10px;
+	}
+	div.modal-body{
+            h4{
+                @include fregular;
+                font-size: 16px;
+                font-weight: normal;
+                text-align: center;
+                padding: 0; margin: 0 auto;
+                display: block;
+                width: 230px;
+            }
+            ul:first-of-type{
+                margin: 15px auto 10px auto; padding: 0;
+                width: 260px;
+                li{
+                    @include fmedium; font-size: 12px; line-height: 1.5;
+                    text-indent: -1px;
+                    text-align: center;
+                    $side: 20px;
+                    display: inline-block;
+                    width: $side; height: $side;
+                    color: $green; background-color: #fff;
+                    border: 1px $green solid; border-radius: 4px;
+                    margin-right: 24px;
+                    &:last-child{
+                        margin-right: 0;
+                    }
+                    &.active{
+                        color: #fff; background-color: $green;
+                    }
+                }
+            }
+            input[type='text'], input[type='password'], select{
+                width: 270px;
+                display: block;
+                margin: 10px auto 0 auto;
+                height: 30px;
+                @include flight; font-size: 14px; /*color: $grey;*/
+                border: 1px $grey solid; border-radius: 5px;
+                background-color: #fff;
+                padding: 1px 5px;
+            }
+            h5{
+                @include small;
+                padding: 0;
+                width: 270px;
+                margin: 2px auto 0 auto;
+                text-align: left;
+            }
+            div.user-info{
+                @include flight; font-size: 16px;
+                width: 280px;
+                margin: 0 auto;
+            }
+            div.select-box{
+                input[type='text'].left, select.left{
+                    display: inline-block;
+                    margin: 0 20px 10px 0;
+                }
+                input[type='text'].right, select.right{
+                    display: inline-block;
+                    margin: 0 0 10px 0;
+                }
+            }
+            label.check{
+                position: relative;
+                @include flight; font-size: 14px; font-weight: normal;
+                padding: 0 0 0 30px; margin: 10px 5px 0 0;
+                color: #000;
+                input[type='checkbox']{
+                    display: none;
+                }
+                input[type='checkbox']+span{
+                    display: block;
+                    display:block;
+                    width: 20px;
+                    height:20px;
+                    border: #97CB52 1px solid;
+                    border-radius: 5px;
+                    color:#000;
+                    position: absolute;
+                    left:0;
+                    top:0;
+                    background-color: #fff;
+                    }
+                input[type='checkbox']:checked+span{
+                    background-color: #97CB52;
+                }
+            }
+            div.radio-box{
+                margin: 15px auto;
+                width: 360px;
+                @include radio;
+            }
+            textarea{
+                width: 570px;
+                height: 100px;
+                @include flight; font-size: 14px; /*color: $grey;*/
+                border: 1px $grey solid; border-radius: 5px;
+                background-color: #fff;
+                padding: 1px 5px;
+                resize: none;
+            }
+            div.mixed1{
+                width: 450px;
+                margin: 3px auto 15px auto;
+                @include radio;
+                input[type='text']{
+                    width: 70px;
+                    display: inline-block;
+                    margin: 0 20px 0 10px;
+                }
+            }
+            div.mixed2{
+                width: 100%;
+                @include flight;
+                color: #000;
+                margin-bottom: 30px;
+                label{
+                    font-size: 16px; font-weight: normal; color: #000;
+                }
+                input[type='text']{
+                    width: 70px;
+                    display: inline-block;
+                    margin: 0 2px 0 15px;
+                    text-align: center;
+                }
+                button{
+                    @include button;
+                    margin-left: 21px;
+                }
+            }
+            div.mixed3{
+                width: 100%;
+                label{
+                    @include flight;
+                    color: #000; font-size: 16px; font-weight: normal;
+                    display: inline-block;
+                    width: 282px;
+                    margin: 0 0 20px 0;
+                    span{
+                        width:190px;
+                        display: inline-block;
+                        &.right{
+                            padding-left: 15px;
+                        }
+                    }
+                    input[type='text']{
+                        width: 70px;
+                        display: inline-block;
+                        margin: 0;
+                        text-align: center;
+                    }
+                }
+            }
+            div.big-input{
+                margin: 15px 0 10px 0;
+                input{
+                    width:100%;
+                }
+            }
+            div.room-check{
+                width: 400px; margin: 0 auto 0 auto;
+                label{
+                    position: relative;
+                    @include flight; font-size: 14px; font-weight: normal;
+                    width: 130px; display: inline-block;
+                    color: #000;
+                    padding:0 0 0 30px; margin: 0 0 15px 0;
+                    input[type='checkbox']{
+                        display: none;
+                    }
+                    input[type='checkbox']+span{
+                        display: block;
+                        display:block;
+                        width: 20px;
+                        height:20px;
+                        border: #97CB52 1px solid;
+                        border-radius: 5px;
+                        color:#000;
+                        position: absolute;
+                        left:0;
+                        top:0;
+                        background-color: #fff;
+                        }
+                    input[type='checkbox']:checked+span{
+                        background-color: #97CB52;
+                    }
+                }
+            }
+            small{
+                @include small;
+            }
+            ul.photos{
+                margin:0; padding: 0;
+                list-style: none;
+                li{
+                    display: inline-block;
+                    width: 94px; height: 70px;
+                    border: 1px $grey solid; border-radius: 5px;
+                    background-color: #E8E8E8;
+                    overflow: hidden;
+                    padding: 0; margin: 20px 8px;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+            div#add_map{
+                    margin: 0 0 20px 0; padding: 0;
+                    width: 100%; height: 270px;
+                    border-radius: 5px; border: 1px $grey solid;
+            }
+            div.add_room_photo{
+                button{
+                    @include button;
+                    margin: 0 auto;
+                }
+            }
+            div.add_another_room{
+                @include end;
+                button{
+                    @include button;
+                    margin-right: 100px;
+                }
+            }
+            div.text{
+                width: 310px;
+                @include fregular;
+                color: $grey;
+                font-size: 12px;
+                font-weight: normal;
+                margin: 0 auto;
+            }
+            h4.step6{
+                width: 100%;
+                text-align: center;
+            }
+
+	}
+        button#add_hotel_photo{
+            @include button;
+            display: block;
+            margin: 10px auto 0 auto;
+        }
+	div.modal-footer{
+		border-top: none;
+		padding: 0 15px 15px 15px;
+		text-align: center;
+		a, button{
+			@include button;
+			&:last-of-type{
+				margin-right: 100px;
+			}
+		}
+                &.step6{
+                    a, button{
+                        width: 250px;
+                        &:last-of-type{
+				margin-right: 0;
+			}
+                    }
+                }
+	}
+}
+
+main{
+	@include end;
+	width: 1230px;
+	margin: 0 auto;
+	padding: 0 30px;
+	div.main_head{
+		@include end;
+		margin: 25px 0 0 0;
+		max-width: 970px;
+		h1{
+			font-size: 24px;
+			margin:0;
+			display: inline-block;
+		}
+		form{
+			margin: 0 0 0 auto;
+			display: inline-block;
+			float: right;
+			>select{
+				border-radius: 6px;
+				max-width:170px;
+				@include inp;
+			}
+		}
+	}
+	div.green, div.grey{
+		display: block;
+		margin-top: 5px;
+		float:left;
+	}
+	div.rooms-line2{
+		width: 740px;
+	}
+	div.grey-hotel{
+		width: 740px;
+	}
+    section.user-info{
+        float: left;
+        @include fregular;
+        width: 270px;
+        font-size: 16px;
+        h2.small{
+            font-weight: 500;
+            font-size: 13px;
+            color:#A3A3A3;
+            margin: 26px 0 15px 0;
+        }
+        >p{
+            width: 100%;
+            height: 40px;
+            border-radius: 3px;
+            border: 1px #ADADAD solid;
+            line-height: 2.4;
+            padding-left: 10px;
+        }
+        input[type="text"]{
+            width:100%; height: 40px;
+            border-radius: 3px;
+            border: 1px #ADADAD solid;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #000;
+            padding-left: 10px;
+        }
+        >a, a:visited, a:hover{
+            color: #000;
+            text-decoration: none;
+            i{
+                color: #399DD0;
+            }
+        }
+        button{
+            @include but;
+            width: 170px;
+            margin-top: 30px;
+        }
+    }
+    section.adds-list{
+        float:left;
+        width: 870px;
+        margin-left: 30px;
+        ul.caption{
+			list-style: none;
+			margin: 22px 0 11px 0; padding: 0;
+			li{
+				@include fregular;
+				display: inline-block;
+				margin:0; padding: 0;
+				font-size: 13px;
+				color:#A3A3A3;
+				&:nth-child(1){
+					width: 300px;
+				}
+				&:nth-child(2){
+					width: 200px;
+				}
+				&:nth-child(3){
+					width: 200px;
+				}
+			}
+		}
+        aside{
+			@include end;
+			margin: 0 0 10px 0;
+			>div{
+				@include flight;
+				display: inline-block;
+				margin: 0 30px 10px 0; padding: 5px 10px;
+				font-size: 16px;
+				color:#555;
+				background-color: #fff;
+				border: 1px #939393 solid;
+				height: 40px;
+				float: left;
+				overflow: hidden;
+				&:nth-child(1){
+					width: 270px;
+					border-left: 1px #939393 solid;
+				}
+				&:nth-child(2){
+					width: 170px;
+				}
+				&:nth-child(3){
+					width: 170px;
+				}
+			}
+			>a.btn-default{
+				@include but;
+				float: right;
+				width: 170px;
+				height: 30px;
+                &:hover{
+            		background-color: #F7A010;
+            		color: #fff;
+            	}
+            	&:active{
+            		background-color: #399DD0;
+            		color: #fff;
+            	}
+			}
+		}
+    }
+	section.adds{
+		max-width:970px;
+		width:100%;
+		float:left;
+		aside{
+			position: relative;
+			max-width:970px;
+			height:200px;
+			padding: 0;
+			margin: 35px 0 0 0;
+			border-radius: 5px;
+			background-color: #fff;
+			@include flight;
+			@include end;
+			div.photo{
+				position: relative;
+				padding: 35px;
+				max-width: 250px;
+				height: 190px;
+				overflow: hidden;
+				float: left;
+				img.main-photo{
+					width: 100%;
+				}
+				>img.images{
+					position: absolute;
+					top: 110px;
+					left: 180px;
+				}
+			}
+			div.content{
+				float: left;
+				max-width: 720px;
+				padding: 30px 50px 10px 0;
+				h3{
+					margin:0 0 15px 0;
+					font-size: 20px;
+					color: #000;
+				}
+				>div span{
+					font-size: 13px;
+					color: #000;
+				}
+				article{
+					font-size: 14px;
+					color: rgb(130, 130, 130);
+					line-height: 1.5;
+					margin: 10px 0;
+				}
+				div.grey{
+					width: 660px;
+					display: block;
+				}
+				div.details{
+					color: #90C552;
+					font-size: 20px;
+					span{
+						@include fmedium;
+						color: #90C552;
+						font-size: 20px;
+					}
+				}
+				a{
+					margin-top: 5px;
+					width: 160px;
+					border: none;
+					font-size: 14px;
+					img{
+						margin-left: 5px;
+					}
+				}
+			}
+		}
+	}
+
+	section.book-adds, section.rooms{
+		max-width:970px;
+		width:100%;
+		float:left;
+		aside{
+			position: relative;
+			max-width:970px;
+			height:245px;
+			margin: 35px 0 0 0 ;
+			padding: 0;
+			border-radius: 5px;
+			background-color: #fff;
+			@include flight;
+			font-size: 900;
+			div.photo{
+				border-radius: 5px 0 0 5px;
+				max-width:380px;
+				background-color: transparent;
+				height: 245px;
+				float:left;
+				img:first-of-type{
+					border-radius: 5px 0 0 5px;
+					height: 245px;
+					max-width: 380px;
+					width: 100%;
+					float: left;
+				}
+				img.images{
+					margin: 0;
+					left: 335px;
+					bottom: 15px;
+					position: absolute;
+                    width: 24px;
+                    height: 26px;
+				}
+				>div{
+					position: absolute;
+					width: 50px;
+					height: 30px;
+					box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+					top: 12px;
+					left:12px;
+					&:after{
+						position: absolute;
+						content:'';
+						color: #fff;
+						font-weight: bold;
+						padding-left:14px;
+						line-height: 32px;
+						font-size: 14px;
+					}
+					&.vip{
+						background-color: #F24841;
+						&:after{
+							content: 'VIP';
+						}
+					}
+					&.top{
+						background-color: #F7941D;
+						&:after{
+							content: 'TOP';
+						}
+					}
+				}
+			}
+			div.content{
+				font-size:13px;
+				max-width:590px;
+				padding: 25px 32px 28px 21px;
+				float:left;
+				height: 100%;
+				h3{
+					font-size: 20px;
+					margin: 0 0 5px 0;
+					padding: 0;
+					line-height: 1.1;
+				}
+				>div,article{
+					margin-bottom: 5px;
+				}
+				img{
+					margin: 0 10px;
+				}
+				article{
+					color: #979797;
+					font-size: 14px;
+				}
+				@include end;
+				span.phone{
+					@include fregular;
+					color: #8DBC4E;
+					font-size: 16px;
+				}
+				div.details{
+					font-size: 20px;
+					@include flight;
+					color: #8DBC4E;
+					span{
+						@include fmedium;
+					}
+				}
+				a{
+					text-indent: 0;
+					width: 140px;
+					border:none;
+				}
+                ul{
+                    margin: 0;
+                    padding: 0;
+                    li{
+                        display: inline-block;
+                        margin: 0 0 10px 0;
+                        position: relative;
+                        img+div{
+        					@include pop;
+                            position: absolute;
+                            left: 0;
+                            top: 25px;
+        				}
+                        img:hover+div{
+                            display: block;
+                        }
+                        div.info-beach{
+        					width:150px;
+        				}
+        				div.info-wifi{
+        					width:55px;
+        				}
+        				div.info-rooms{
+        					width:115px;
+        				}
+        				img[alt='home']{
+        					margin-top: -9px;
+        				}
+        				div.info-bath{
+        					width:180px;
+        				}
+                        div.info-lux{
+            				width:115px;
+            			}
+                    }
+                }
+
+				// img[alt='beach'], img[alt='marker'], img[alt='phone']{
+				// 	margin-left: 0;
+				// }
+				div.grey{
+					max-width:540px;
+					height: 0;
+					border-top: #D1D1D1 1px solid;
+					display: inline-block;
+					margin-left: 0;
+				}
+
+			}
+		}
+	}
+	section.rooms{
+		aside{
+			>div.content{
+                ul{
+                    margin: 0;
+                    padding: 0;
+                    li{
+                        display: inline-block;
+                        margin: 0 0 10px 0;
+                        position: relative;
+                        img+div{
+        					@include pop;
+                            position: absolute;
+                            left: 0;
+                            top: 25px;
+        				}
+                        img:hover+div{
+                            display: block;
+                            width: 100px;
+                        }
+                        img[alt='bed']:hover+div{
+        					width: 180px;
+        				}
+                        img[alt='bath']:hover+div{
+        					width: 120px;
+        				}
+                        img[alt='wc']:hover+div{
+        					width: 140px;
+        				}
+                        img[alt='kitchen']:hover+div{
+        					width: 80px;
+        				}
+                    }
+                }
+				span.phone{
+					margin-top: 25px;
+					margin-bottom: 5px;
+					display: inline-block;
+				}
+			}
+		}
+	}
+	section.banners{
+		padding-top: 35px;
+		text-align: right;
+		max-width:199px;
+		width:100%;
+		float:left;
+		@include end;
+	}
+	section.hotel-view{
+		padding: 35px 0 0 0;
+		max-width: 670px;
+		float: left;
+		aside.hotel-info, aside.room-info{
+			position: relative;
+			@include flight;
+			width: 100%;
+			img.main-photo{
+				width: 100%;
+				border-radius: 5px;
+				margin: 0;
+			}
+			h1{
+				font-size: 20px;
+				line-height: 1.1;
+				color: #000;
+				span{
+					@include fmedium;
+					line-height: 1.5;
+					font-size: 14px;
+					height: 20px;
+					padding: 1px 5px;
+					color: #fff;
+					&.VIP{
+						background-color: rgb(242, 72, 65);
+					}
+				}
+			}
+			>div{
+				color: #000;
+				font-size: 13px;
+			}
+			>ul{
+				color: #000;
+				font-size: 13px;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				z-index: 1;
+				li{
+					display: inline-block;
+					margin: 0 0 10px 0;
+					position: relative;
+					img{
+						margin: 0 5px 0 0;
+					}
+					img+div{
+						display:none;
+					}
+					img:hover+div{
+						@include pop;
+						display: block;
+						width: auto;
+						top: 30px;
+						left: -5px;
+						z-index: 2;
+					}
+					img[alt='parking']:hover+div{
+						width: 60px;
+					}
+					img[alt='kids']:hover+div{
+						width: 130px;
+					}
+					&.big{
+						width: 164px;
+					}
+					&.small{
+						width: 85px;
+						img:hover+div{
+							&:after{
+								margin-top: -33px;
+							}
+						}
+					}
+				}
+			}
+			article{
+				margin-top: 35px;
+				color: #444;
+				line-height: 1.5;
+				font-size: 14px;
+			}
+		}
+		#feed_form{
+			@include end;
+			background-color: #fff;
+			width: 670px;
+			height: 300px;
+			margin-top: 40px;
+			padding: 15px 30px 20px 30px;
+			h2{
+				margin: 0 0 30px 0;
+				@include fmedium;
+				color:#828282;
+				font-size: 16px;
+				line-height: 1.313;
+			}
+			input[type='text']{
+				border:1px #BFBFBF solid;
+				border-radius: 4px;
+				height: 40px;
+				line-height: 1.5;
+				text-indent: 17px;
+				width: 300px;
+			}
+			input#form_name{
+				margin-right: 6px;
+			}
+            h3{
+                @include flight;
+                font-size: 14px;
+                line-height: 1.5;
+                input[type='radio']{
+        			display: none;
+        		}
+        		input[type='radio']+div.check{
+        			@include radioff;
+        			margin-bottom: -5px;
+                    margin-left: 30px;
+        		}
+        		input[type='radio']:checked+div.check{
+        			@include radion;
+        			margin-bottom: -5px;
+                    margin-left: 30px;
+        		}
+            }
+			textarea{
+				color: #828282;
+				text-align: left;
+				width:610px;
+				border:1px #BFBFBF solid;
+				border-radius: 4px;
+				margin-top: 8px;
+				height: 92px;
+				resize: none;
+			}
+			input[type='submit']{
+				font-size: 14px;
+				line-height: 1;
+				width: 150px;
+				height: 30px;
+				@include fmedium;
+				margin-top:10px;
+				float: right;
+				background-color: #399DD0;
+			}
+		}
+		aside.room-info{
+			>div{
+                ul{
+                    margin: 0;
+                    padding: 0;
+                    li{
+                        display: inline-block;
+                        margin: 0 0 10px 0;
+                        position: relative;
+                        width: 84px;
+                        img+div{
+        					@include pop;
+                            position: absolute;
+                            left: 0;
+                            top: 25px;
+        				}
+                        img:hover+div{
+                            display: block;
+                            z-index:2;
+                        }
+                        img[alt='bed']{
+        					margin-left: 0;
+        				}
+                        img[alt='bed']:hover+div{
+        					width: 190px;
+        				}
+                        img[alt='bath']:hover+div{
+        					width: 110px;
+        				}
+        				img[alt='wc']:hover+div{
+        					width: 130px;
+        				}
+        				img[alt='cond']:hover+div{
+        					width: 100px;
+        				}
+        				img[alt='tv']:hover+div{
+        					width: 100px;
+        				}
+        				img[alt='kitchen']:hover+div{
+        					width: 70px;
+        				}
+                        img[alt='wifi']:hover+div{
+        					width: 60px;
+        				}
+                    }
+                }
+			}
+		}
+		aside.feeds{
+			background-color: #fff;
+			/*width: 670px;*/
+			height: auto; /*560px;*/
+			margin-top: 36px;
+			margin-bottom: 40px;
+			padding: 15px 30px 20px 30px;
+			h2{
+				margin: 0 0 30px 0;
+				@include fmedium;
+				color:#828282;
+				font-size: 16px;
+				line-height: 1.313;
+				display: inline;
+			}
+			>span.plus{
+				@include plus;
+				margin: 0 10px -5px 10px;
+			}
+			>span.minus{
+				@include minus;
+				margin: 0 10px -5px 10px ;
+			}
+			div.feed{
+				@include end;
+				padding: 10px 15px 5px 10px;
+				/*width: 610px;*/
+				border: 1px #BFBFBF solid;
+				border-radius: 4px;
+				color: rgb(51, 51, 51);
+				margin: 10px 0;
+				h3{
+					font-size: 14px;
+					line-height: 1.5;
+					margin: 0;
+					span.date{
+						float: right;
+						@include flight;
+						font-size: 12px;
+						line-height: 1.75;
+					}
+				}
+				span.plus{
+					@include plus;
+					margin: 0 5px -5px 0;
+				}
+				span.minus{
+					@include minus;
+					margin: 0 5px -5px 0;
+				}
+				p{
+					@include flight;
+					line-height: 1.5;
+					font-size: 14px;
+					margin: 5px 0 0 0;
+					max-height: 40px;
+					overflow: hidden;
+				}
+				a{
+					@include flight;
+					color: #399DD0;
+					font-size: 14px;
+					line-height: 1.5;
+					float: right;
+					text-decoration: underline;
+					display: none;
+				}
+			}
+			div.feed-re{
+				margin-left: 40px;
+				span.re{
+					display: inline-block;
+					width: 22px;
+					height: 20px;
+					background: url('../img/re.png');
+					background-size: cover;
+					margin: 0 0 -7px 15px;
+				}
+			}
+			.btn{
+				@include fmedium;
+				width: 150px;
+				height: 30px;
+				margin: 20px 28px 25px 460px;
+				line-height: 1;
+				font-size: 16px;
+			}
+		}
+	}
+	section.actions{
+		@include end;
+		width: 300px;
+		margin: 35px 0 0 0;
+		padding: 0 0 0 30px;
+		float: left;
+		aside.photos{
+			@include end;
+			div.photo{
+				width: 130px;
+				height: 130px;
+				border-radius: 4px;
+				overflow: hidden;
+				margin: 0 0 10px 0;
+                a{
+
+                }
+				img{
+					width:100%;
+				}
+			}
+			div.left{
+					float:left;
+			}
+			div.right{
+				float:right;
+			}
+
+		}
+		>p{
+			height: 60px;
+			border-radius: 4px;
+			background-color: #fff;
+			color: #8BC34A;
+			text-align: center;
+			line-height: 55px;
+			@include flight;
+			font-size: 20px;
+			>span{
+				@include fmedium;
+			}
+		}
+		>a{
+			width:100%;
+			border:none;
+			height: 40px;
+			margin: 10px 0 0 0;
+			font-size: 14px;
+			line-height: 2;
+		}
+		>div.phone{
+			border-radius: 4px;
+			background-color: #fff;
+			height: 150px;
+			margin: 10px 0 0 0;
+			h3,h4{
+				text-align: center;
+				padding:0;
+				margin:0;
+				color: #828282;
+			}
+			h3{
+				font-size: 14px;
+				padding-top: 35px;
+			}
+			h4{
+				@include flight;
+				padding-top:5px;
+				font-size: 14px;
+			}
+			p{
+				background-color: #F7A010;
+				border-radius: 4px;
+				margin: 20px 30px;
+				height: 40px;
+				color: #fff;
+				text-align: center;
+				font-size: 14px;
+				line-height: 40px;
+				i{
+					padding-right: 10px;
+				}
+			}
+		}
+		div.map{
+			border: 1px #DBDBDB solid;
+			border-radius: 4px;
+			margin-top: 10px;
+			>div{
+				border-radius: 4px 4px 0 0;
+				overflow: hidden;
+				width: 270px;
+				height: 222px;
+				img{
+					width:100%;
+				}
+			}
+			>p{
+				height: 45px;
+				background-color: #fff;
+				border-radius: 0 0 4px 4px;
+				@include flight;
+				font-size: 13px;
+				line-height: 40px;
+				text-align: center;
+				i{
+					color:#BABABA;
+					font-size: 16px;
+					padding-right: 5px;
+				}
+				margin:0;
+			}
+		}
+	}
+	section.hotel-edit{
+		@include fregular;
+		@include end;
+		margin: 30px 0 0 0;
+		max-width: 1170px;
+		padding: 0;
+		label{
+			font-weight: normal;
+		}
+	}
+	section.hotel-edit1{
+		aside{
+			min-height: 150px;
+			margin: 0 30px 0 0;
+			padding: 0;
+			font-size: 16px;
+			float: left;
+			label.text{
+				width: 168px;
+				font-size: 18px;
+			}
+			input[type='text'].col-xs-1{
+				@include flight;
+				font-size: 16px;
+				width: 70px;
+				height: 30px;
+				float: none;
+				display: inline-block;
+				margin: 0 0 8px 0;
+				text-align: center;
+			}
+			input.form-control{
+				color: #323931;
+			}
+			small{
+				font-size: 13px;
+				color: #999999;
+			}
+		}
+		aside.hotel-menu{
+			padding: 0;
+			margin: 0 0 0 0;
+			width: 170px;
+			float: right;
+			menu{
+				padding: 0;
+				margin: 0;
+				a{
+					@include fmedium;
+					font-size: 14px;
+					display: block;
+					width: 100%;
+					margin-top: 8px;
+					height: 30px;
+					line-height: 1;
+					&:hover{
+						color: #333;
+					}
+					&.btn-default{
+						background-color: #E7E7E7;
+						color: #828282;
+					}
+					&.btn-default:hover{
+						background-color: #F7A010;
+						color: #fff;
+					}
+					&.btn-default:active{
+						background-color: #399DD0;
+						color: #fff;
+					}
+				}
+			}
+
+		}
+
+		aside.info1{
+			width: 300px;
+			padding: 0 30px 0 0;
+			margin-right: 0;
+			>div.user{
+				border: 1px #ADADAD solid;
+				border-radius: 5px;
+				text-align: center;
+				padding: 10px 0;
+				>h2{
+					margin:0 0 5px 0;
+					@include fregular;
+					font-size: 16px;
+					font-weight: normal;
+				}
+				ul{
+					margin: 0;
+					padding: 0;
+					list-style: none;
+				}
+			}
+
+			input.col-xs-12{
+				@include flight;
+				height: 40px;
+				font-size: 16px;
+				width: 100%;
+				text-indent: 0;
+				margin: 0 0 22px 0;
+				text-align: left;
+				color: #323931;
+			}
+
+			input[type='radio']{
+				display: none;
+			}
+			input[type='radio']+div.check{
+				@include radioff;
+				margin-bottom: -3px;
+			}
+			input[type='radio']:checked+div.check{
+				@include radion;
+				margin-bottom: -3px;
+			}
+		}
+		aside.info2{
+			width: 300px;
+			padding: 0 30px 0 0;
+			margin-right: 0;
+			select{
+				width:270px;
+				@include flight;
+			}
+			h5{
+				margin: 1px 0 7px 0;
+				padding: 0;
+				text-align: center;
+			}
+		}
+		aside.map{
+			width: 370px;
+			margin: 0 30px 0px 0px;
+			div.map{
+				border: 1px #DBDBDB solid;
+				border-radius: 4px;
+				margin-top: 10px;
+				>div{
+					border-radius: 4px 4px 0 0;
+					overflow: hidden;
+					width: 370px;
+					height: 290px;
+					img{
+						width:100%;
+					}
+				}
+				>input[type='text']{
+					height: 45px;
+					border-radius: 0 0 4px 4px;
+					@include flight;
+					font-size: 13px;
+					line-height: 40px;
+					margin:0;
+					color: #323931;
+				}
+			}
+		}
+		aside.info3{
+			width: 370px;
+			label{
+				margin: 0;
+			}
+			input.col-xs-12{
+				margin-bottom: 15px;
+				float: none;
+			}
+		}
+		aside.about{
+			width: 970px;
+			textarea{
+				width: 100%; height: 110px;
+				@include flight;
+				font-size: 14px; padding: 10px;
+				border-radius: 3px; border: 1px #C0C0C0 solid;
+				resize: none;
+			}
+			p{
+				@include flight;
+				font-size: 12px;
+				color: #929292;
+			}
+		}
+	}
+	section.hotel-photos{
+		@include end;
+		h3, h5{
+			margin: 0 0 5px 0;
+			padding: 0;
+			font-weight: normal;
+		}
+		h3{
+			font-size: 16px;
+		}
+		aside{
+			float: left;
+		}
+		aside.photos{
+			width: 999px;
+			ul{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				li{
+					background-color: #C6C6C6;
+					display: inline-block;
+					width: 168px;
+					height: 125px;
+					border-radius: 5px;
+					margin-right: 28px;
+					overflow: hidden;
+                    position: relative;
+					img{
+						width: 100%;
+					}
+					&:last-child{
+						/*margin: 0;*/
+					}
+                    i{
+                        position: absolute;
+                        font-size: 50px;
+                        color: #fff;
+                        top: 32px;
+                        left: 70px;
+                        cursor: pointer;
+                        display: none;
+                    }
+				}
+			}
+		}
+		aside.menu{
+			margin: 35px 0 0 0;
+			padding: 0;
+			width: 170px;
+			menu{
+				padding: 0;
+				margin: 0;
+				a{
+					/*@include fmedium;
+					font-size: 14px;
+					display: block;
+					width: 100%;
+					margin-top: 8px;
+					height: 30px;
+					line-height: 1;
+					&:hover{
+						color: #333;
+					}
+					&.btn-default{
+						background-color: #E7E7E7;
+						color: #828282;
+					}
+					&.btn-default:hover{
+						background-color: #828282;
+						color: #E7E7E7;
+					}*/
+					@include but;
+				}
+			}
+		}
+	}
+	section.other-photo{
+		margin-top: 0px;
+	}
+	section.hotel-feaches{
+		font-size: 16px;
+		color: #000;
+		label{
+			padding: 0 10px 0 30px;
+		}
+		input[type='checkbox']{
+			/*@include check;
+			&::after{
+				margin-left: -25px;
+				margin-top: -15px;
+			}*/
+		}
+		input[type='radio']{
+			display: none;
+		}
+		input[type='radio']+div.check{
+			@include radioff;
+			margin-bottom: -3px;
+		}
+		input[type='radio']:checked+div.check{
+			@include radion;
+			margin-bottom: -3px;
+		}
+		span.space{
+			display: inline-block;
+			width: 24px;
+		}
+		label.check{
+			position: relative;
+			input[type='checkbox']{
+				display: none;
+
+			}
+			input[type='checkbox']+span{
+				display: block;
+				display:block;
+				width: 20px;
+				height:20px;
+				border: #97CB52 1px solid;
+				border-radius: 5px;
+				color:#333;
+				position: absolute;
+				left:0;
+				top:0;
+				background-color: #fff;
+			}
+			input[type='checkbox']:checked+span{
+				background-color: #97CB52;
+			}
+		}
+
+	}
+	section.hotel-about{
+		@include end;
+		aside{
+			float: left;
+		}
+		aside.about{
+			width: 900px;
+			textarea{
+				width: 870px;
+				height: 110px;
+				resize: none;
+				@include flight;
+				color: #323931;
+			}
+		}
+		aside.menu{
+			width: 270px;
+			menu{
+				margin: 0;
+				padding: 0;
+				a{
+					@include but;
+					margin: 0 0 10px 0;
+				}
+				p{
+					height: 30px;
+					border: 1px #ADADAD solid;
+					border-radius: 5px;
+					text-align: center;
+					line-height: 1.7em;
+				}
+			}
+		}
+	}
+	section.room-edit{
+		float: left;
+		margin: 25px 0 0 0;
+		width: 800px;
+		@include end;
+		@mixin roomSmall{
+			@include fregular;
+			font-size: 13px;
+			font-weight: normal;
+			color: #A3A3A3;
+			margin: 0;
+			padding: 0 0 3px 0;
+		}
+		aside{
+			float: left;
+			height: 240px;
+		}
+		aside.room-list{
+			height: auto;
+			width: 200px;
+			h1{
+				@include roomSmall;
+
+			}
+			ul{
+				list-style: none;
+				padding: 0;	margin: 0;
+				li{
+					display: block; width: 170px; height: 40px;
+					border: 1px #ADADAD solid; border-radius: 2px;
+					padding: 0; margin: 0 0 10px 0;
+					@include flight;
+					font-size: 16px;
+					color:  #999;
+					text-align: center;
+					line-height: 2.2em;
+                    cursor: pointer;
+					&.active{
+						color: #000;
+						position: relative;
+						&::after{
+							content: '';
+							display: block;
+							position: absolute;
+							width: 0px; height: 0px;
+							border: 10px #ADADAD solid;
+							border-right-color: transparent;
+							border-top-color: transparent;
+							border-bottom-color: transparent;
+							top: 10px; right:-20px;
+						}
+					}
+				}
+			}
+		}
+		aside.room-info{
+			width: 320px;
+			margin: 0; padding: 0 50px 0 0;
+			label.small{
+				@include roomSmall;
+				input, select{
+					@include flight;
+					font-size: 16px;
+					width: 100%; height: 40px;
+					border: 1px #ADADAD solid; border-radius: 2px;
+					padding: 0; margin: 0 0 10px 0;
+					text-indent: 10px;
+					color: #000;
+				}
+				select{
+					width: 270px;
+				}
+			}
+			label.big{
+				@include fregular;
+				font-size: 18px;
+				color: #000;
+				font-weight: normal;
+				input{
+					width: 70px; height: 30px;
+					border: 1px #ADADAD solid; border-radius: 2px;
+					padding: 0; margin: 0 0 5px 15px;
+					text-align: center;
+				}
+				small{
+					@include roomSmall;
+				}
+			}
+			label.medium{
+				@include fregular;
+				font-size: 14px;
+				font-weight: normal;
+				color: #000;
+				width: 120px;
+				input[type='radio']{
+					display: none;
+				}
+				input[type='radio']+div.check{
+					@include radioff;
+					margin-bottom: -3px;
+				}
+				input[type='radio']:checked+div.check{
+					@include radion;
+					margin-bottom: -3px;
+				}
+			}
+		}
+		aside.booking{
+			width: 275px;
+			h2{
+				@include roomSmall;
+			}
+		}
+		aside.features{
+			width: 800px;
+			padding-right: 30px;
+			h3{
+				@include roomSmall;
+			}
+			label.check{
+				@include fregular;
+				font-weight: normal;
+				font-size: 14px;
+				text-indent: 30px;
+				position: relative;
+				margin-right: 15px;
+				input[type='checkbox']{
+					display: none;
+				}
+				input[type='checkbox']+span{
+					display: block;
+					display:block;
+					width: 20px;
+					height:20px;
+					border: #97CB52 1px solid;
+					border-radius: 5px;
+					color:#333;
+					position: absolute;
+					left:0;
+					top:0;
+					background-color: #fff;
+				}
+				input[type='checkbox']:checked+span{
+					background-color: #97CB52;
+				}
+			}
+			textarea{
+				width: 770px; height: 100px;
+				margin: 45px 0 0 0;
+				border: 1px #ADADAD solid; border-radius: 2px;
+				@include flight;
+				color: #000;
+				resize: none;
+			}
+		}
+	}
+	section.room-photos{
+		margin-top: 25px;
+		float: left;
+		width: 370px;
+		@include end;
+		@mixin roomSmall{
+			@include fregular;
+			font-size: 13px;
+			font-weight: normal;
+			color: #A3A3A3;
+			margin: 0;
+			padding: 0 0 3px 0;
+		}
+		h2{
+			@include fregular;
+			font-size: 16px;
+			margin: 0;
+		}
+		p{
+			@include roomSmall;
+		}
+		div{
+            position: relative;
+			width: 170px; height: 125px;
+			border-radius: 5px;
+			overflow: hidden;
+			margin: 10px 0;
+			img{
+				width: 100%;
+			}
+            i{
+                position: absolute;
+                font-size: 50px;
+                color: #fff;
+                top: 32px;
+                left: 70px;
+                cursor: pointer;
+                display: none;
+            }
+		}
+		div:nth-of-type(odd){
+			float: left;
+		}
+		div:nth-of-type(even){
+			float: right;
+		}
+        menu{
+            float: left;padding: 0; width: 100%;
+        }
+		a{
+			@include but;
+			width: 170px;
+			&:nth-of-type(odd){
+				float: left;
+			}
+			&:nth-of-type(even){
+				float: right;
+			}
+		}
+	}
+	section.room-save{
+		width:100%;
+		float: left;
+		position: relative;
+		a{
+			@include but;
+			width: 270px;
+			height: 40px;
+			background-color: #97CB52; color: #fff;
+			line-height: 2em;
+			position: absolute;
+			left: 0; top: -50px;
+		}
+	}
+	section.save{
+		a{
+			@include but;
+			width: 270px; height: 30px;
+			color: #fff; background: #97CB52;
+			margin-top: 20px;
+		}
+	}
+	section.other-photo{
+		p{
+			margin-top: 20px;
+			height: 30px;
+			border: 1px #ADADAD solid;
+			border-radius: 5px;
+			text-align: center;
+			line-height: 1.7em;
+		}
+	}
+	section.feeds-edit{
+		margin: 25px 0 0 0;
+		ul.caption{
+			list-style: none;
+			margin:0; padding: 0;
+			li{
+				@include fregular;
+				display: inline-block;
+				margin:0; padding: 0;
+				font-size: 12px;
+				color:#A3A3A3;
+				&:nth-child(1){
+					width: 100px;
+				}
+				&:nth-child(2){
+					width: 170px;
+				}
+				&:nth-child(3){
+					width: 230px;
+				}
+				&:nth-child(4){
+					width: 400px;
+				}
+				&:nth-child(5){
+					width: 110px;
+				}
+			}
+		}
+		aside{
+			@include end;
+			margin: 0 0 10px 0;
+			>div{
+				margin:0;padding:0;
+				@include flight;
+				display: inline-block;
+				margin:0; padding: 15px 6px;
+				font-size: 16px;
+				color:#555;
+				background-color: #fff;
+				border: 1px #939393 solid;
+				border-left: none;
+				height: 60px;
+				float: left;
+				overflow: hidden;
+				p{
+					margin:0; padding:0;
+				}
+				&:nth-child(1){
+					width: 100px;
+					border-left: 1px #939393 solid;
+					padding: 15px 0;
+					text-align: center;
+				}
+				&:nth-child(2){
+					width: 170px;
+					padding: 5px 6px;
+				}
+				&:nth-child(3){
+					width: 230px;
+				}
+				&:nth-child(4){
+					width: 400px;
+				}
+				&:nth-child(5){
+					width: 110px;
+					padding: 15px 0;
+					text-align: center;
+				}
+
+				&.feed{
+					position: relative;
+					p{
+						margin-left: 25px;
+						width: 350px;
+						overflow: hidden;
+					}
+					span.plus{
+						@include plus;
+						position: absolute;
+						top: 17px;
+						left: 5px;
+					}
+                    span.minus{
+						@include minus;
+						position: absolute;
+						top: 17px;
+						left: 5px;
+					}
+                    span.re{
+						@include re;
+						position: absolute;
+						top: 17px;
+						left: 5px;
+					}
+					i{
+						display: block;
+						position: absolute;
+						top: 17px;
+						right: 10px;
+						font-size: 20px;
+						cursor: pointer;
+					}
+				}
+			}
+			button{
+				@include but;
+				float: right;
+				width: 150px;
+				height: 30px;
+				&.btn-danger{
+					background-color: #FF0000;
+					color: #fff;
+					&:hover{
+						background-color: #fff;
+						color: #FF0000;
+					}
+				}
+			}
+		}
+	}
+}
+
+ul.pagg{
+	margin: 75px auto 35px auto;
+	padding: 0;
+	width: 230px;
+	list-style:none;
+	&.other{
+		margin: 50px auto 50px auto;
+	}
+	li{
+		float: left;
+		width:30px;
+		height:30px;
+		border: #A6A6A6 1px solid;
+		border-radius: 3px;
+		margin-left: 20px;
+		text-align: center;
+		font-size: 1.1em;
+		line-height: 30px;
+		a{
+			color: #000;
+			text-decoration: none;
+			&:visited{
+				text-decoration: none;
+			}
+			&:hover{
+				text-decoration: none;
+			}
+			display: block;
+		}
+		&:hover{
+			background: #fff;
+		}
+		&:first-of-type, &:last-of-type{
+			background-color: $s-color;
+			border-color: $s-color;
+			color:#fff;
+			&:hover{
+				background-color: #255625;
+			}
+		}
+		&:first-of-type{
+			margin:0;
+		}
+	}
+	&:after{
+		content:'';
+		display: block;
+		clear: both;
+	}
+}
+
+section.other, section.history{
+	width:$main-width;
+		margin:0 auto;
+	&:after{
+		content:'';
+		display: block;
+		clear: both;
+	}
+	h2{
+		font-size: 24px;
+		margin: 0;
+		padding: 0;
+	}
+	div.grey{
+		width:935px;
+	}
+	aside{
+		width: 270px;
+		height: 260px;
+		border-radius: 5px;
+		background-color: #fff;
+		float:left;
+		margin: 35px 0 0 30px;
+		&:first-of-type{
+			margin-left: 0;
+		}
+		div.main-photo{
+			width: 270px;
+			height: 128px;
+			border-radius: 5px 5px  0 0;
+			overflow: hidden;
+			img{
+				width: 270px;
+			}
+		}
+		div.content{
+			padding: 20px;
+			h3{
+				padding: 0;
+				margin: 0;
+				font-size: 16px;
+			}
+			div.grey{
+				width: 230px;
+			}
+			p{
+				margin-top: 20px;
+				color: #A2CF6F;
+				@include flight;
+				font-size: 18px;
+				span{
+					@include fmedium;
+				}
+				a{
+					line-height: 26px;
+					font-size: 13px;
+					color: #90CDFA;
+					&:visited{
+						color: #90CDFA;
+					}
+				}
+			}
+		}
+	}
+}
+
+footer{
+	height: 300px;
+	margin-top: 100px;
+	background-color: #262626;
+	color: #eee;
+	@include flight;
+	@include end;
+	>div{
+		margin: 0 auto;
+		width: 1230px;
+		padding: 0 30px;
+		height: 100%;
+		img[alt='logo']{
+			margin: 30px 70px 70px 10px;
+		}
+		p{
+			display: inline-block;
+			width: 340px;
+			margin: 60px 0 0 0;
+		}
+		ul{
+			list-style:none;
+			padding: 0;
+			li{
+				display: block;
+				float:left;
+				padding-left: 18px;
+				&:after{
+					content:'';
+					width: 0;
+					height: 14px;
+					border-left: 1px #eee solid;
+					margin-left: 18px;
+				}
+				&:last-of-type{
+					&:after{
+						border:none;
+					}
+				}
+				&:first-of-type{
+					padding: 0;
+				}
+				a, a:visited{
+					transition: 0.25s ease;
+					font-size: 12px;
+					color: #eee;
+					text-decoration: none;
+					&:hover{
+						text-decoration: none;
+						color: #63A4D6;
+					}
+				}
+			}
+		}
+	}
+	aside{
+		float: left;
+	}
+	aside.social{
+		padding-top: 60px;
+		max-width: 250px;
+		text-align: right;
+		>button{
+			width: 200px;
+			margin-bottom: 10px;
+			@include fmedium;
+			line-height: 1.2em;
+			font-size: 14px;
+			height: 30px;
+		}
+		img{
+			display: none;
+		}
+		div{
+			text-align: right;
+			width:255px;
+			margin: 0 0 15px auto;
+			a{
+				transition: 0.25s ease;
+				display: block;
+				width:30px;
+				height:30px;
+				text-align: center;
+				color:#fff;
+				border: 2px #fff solid;
+				border-radius: 100%;
+				font-size: 18px;
+				line-height: 26px;
+				margin: 0 0 0 14px;
+				float:left;
+				text-decoration: none;
+				&.g{
+					font-family: 'Times',Georgia;
+					line-height: 20px;
+				}
+				small{
+					font-size: 14px;
+				}
+				&:hover{
+					color: #999;
+					border-color: #999;
+					text-decoration: none;
+				}
+				&:first-child{
+					margin-left: 0;
+				}
+			}
+			@include end;
+		}
+	}
+}
+
+@media screen and (max-width: 1231px){/*1231*/
+	header{
+		>div{
+			width: 100%;
+			div.lang{
+				margin: 4px 4px 0 0;
+				float: right;
+			}
+		}
+
+	}
+	main{
+		max-width: 1170px;
+		padding: 0;
+		margin: 0 auto;
+	}
+	main{
+		section.banners{
+			height:100%;
+		}
+	}
+	footer{
+		>div{
+			max-width:100%;
+		}
+	}
+}
+
+@media screen and (max-width: 1170px){/*1170*/
+	header{
+		>div{
+			position: relative;
+			width:100%;
+			max-width: 768px;
+			>nav:first-of-type{
+				margin: 15px 0 0 30px;
+				button{
+					display: block;
+					margin: 0 0 10px 0;
+				}
+				button:last-of-type{
+					margin-left:0px;
+				}
+			}
+			>div:first-of-type{
+				margin: 55px 0 0 100px;
+			}
+			div.lang{
+				position: absolute;
+				margin: 0;
+				top: 15px;
+				right: 0px;
+				button{
+					display: inline-block;
+					margin: 0 8px 0 0;
+				}
+			}
+		}
+	}
+
+	div.slider{
+		dialog{
+			max-width: 768px;
+			height: 175px;
+			margin-top: 82px;
+			margin-left: -384px;
+			div.stick{
+
+			}
+			div.filter{
+				width:185px;
+				h3{
+					margin: 0;
+				}
+				h2{
+					margin: 5px 0;
+				}
+				button{
+					width:130px;
+					display: block;
+					margin: 10px auto;
+				}
+			}
+			div.filter1{
+				max-width: 216px;
+				width:100%;
+				padding-right: 17px;
+			}
+			div.filter2{
+				max-width: 202px;
+				width: 100%;
+				padding-left: 20px;
+				padding-right: 14px;
+			}
+			div.filter3{
+				max-width: 168px;
+				width: 100%;
+				padding: 30px 20px 0 20px;
+			}
+			div.filter4{
+				max-width:176px;
+				width: 100%;
+			}
+		}
+	}
+
+	main{
+		width: 768px;/*828*/
+		div.grey{
+			width: 335px;
+		}
+		div.rooms-line2{
+			width: 540px;
+		}
+		div.main_head{
+			width: 768px;
+		}
+        section.user-info{
+            float:none;
+            margin: 0 auto;
+            >button{
+                width: 100%;
+            }
+        }
+        section.adds-list{
+            width: 768px;
+            float: none;
+            margin: 0 auto;
+            ul.caption{
+    			li{
+    				&:nth-child(1){
+    					width: 276px;
+    				}
+    				&:nth-child(2){
+    					width: 178px;
+    				}
+    				&:nth-child(3){
+    					width: 200px;
+    				}
+    			}
+    		}
+            aside{
+                div{
+                    margin-right: 10px;
+                }
+                >a.btn-default{
+                    width: 120px;
+                }
+            }
+        }
+		section.adds{
+			width:768px;
+			float:none;
+			aside{
+				div.photo{
+					padding: 30px 10px;
+					max-width: 200px;
+					img.images{
+						left: 155px;
+					}
+				}
+				div.content{
+					max-width: 565px;
+					div.grey{
+						width: 517px;
+					}
+				}
+			}
+		}
+		section.book-adds, section.rooms{
+			width:768px;
+			float:none;
+			aside{
+				width:768px;
+				div.photo{
+					width:270px;
+					overflow: hidden;
+					img.images{
+						left: 230px;
+					}
+				}
+				/*div.content{
+					width:498px;
+					div.info-beach{
+						left: 280px;
+					}
+					div.info-wifi{
+						left: 415px;
+					}
+					div.info-rooms{
+						left: 410px;
+					}
+					div.info-bath{
+						left: 515px;
+					}
+					article{
+						height: 40px;
+						overflow: hidden;
+					}
+					div.grey{
+						width:470px;
+					}
+				}*/
+
+			}
+		}
+		section.rooms{
+			aside{
+				>div.content{
+					img[alt='bed']{
+						margin-left:0;
+					}
+				}
+			}
+		}
+		section.banners{
+			display: none;
+		}
+		section.hotel-view{
+			max-width: 450px;
+			aside.hotel-info, aside.room-info{
+				>div{
+
+				}
+				form#feed_form{
+					max-width: 450px;
+					height: 100%;
+					input[type='text']{
+						width: 100%;
+						margin-bottom: 10px;
+					}
+					textarea{
+						width: 100%;
+					}
+				}
+			}
+			aside.room-info{
+				>div{
+					img{
+						margin: 0 5px 0 0;
+					}
+                    ul{
+                        li{
+                            img[alt='bed']{
+                                margin-left: 0;
+                            }
+                        }
+                    }
+				}
+			}
+			aside.feeds{
+				max-width: 450px;
+				height: 100%;
+				margin-bottom: 50px;
+				div.feed{
+					p{
+						max-height: 60px;
+					}
+				}
+				.btn{
+					margin-left: 240px;
+				}
+			}
+		}
+		section.hotel-edit{
+			width: 768px;
+		}
+		section.hotel-edit1{
+			aside{
+				height: 350px;
+				margin: 0;
+				padding: 0;
+			}
+			aside.hotel-menu{
+				float: left;
+				width: 270px;
+			}
+			aside.info1{
+				float: right;
+			}
+			aside.info2{
+				padding: 0;
+			}
+			aside.map{
+				float: right;
+				margin: 0;
+			}
+			aside.other1, aside.other2, aside.other3{
+				width: 400px;
+				margin: 10px 0 10px 30px;;
+				height: auto;
+				min-height: 10px;
+				float: left;
+			}
+			aside.other1{
+				padding-right: 0;
+			}
+			aside.other2{
+				label{
+					select{
+						width: 400px;
+					}
+				}
+			}
+			aside.about{
+				width: 768px;
+				height: auto;
+			}
+		}
+
+		section.hotel-photos{
+			aside.photos{
+				width: 596px;
+			}
+		}
+		section.hotel-about{
+			aside.about{
+				width: 568px;
+				textarea{
+					width: 560px;
+				}
+			}
+			aside.menu{
+				width: 200px;
+				menu{
+					a{
+						width: 200px;
+					}
+				}
+			}
+		}
+		section.room-edit{
+			width: 768px;
+			aside.room-list, aside.room-info, aside.booking{
+				min-height: 275px;
+			}
+			aside.room-info{
+				width: 260px;
+				padding-right: 40px;
+				label.small{
+					select{
+						width: 220px;
+					}
+				}
+			}
+			aside.booking{
+				width: 250px;
+			}
+			aside.features{
+				width: 768px;
+				height: 200px;
+				textarea{
+					width: 768px;
+				}
+			}
+		}
+		section.room-photos{
+			width: 768px;
+			div{
+				display: inline-block;
+				margin: 0 15px 22px 0;
+			}
+			div:nth-of-type(even){
+				float:none;
+			}
+			div:nth-of-type(odd){
+				float:none;
+			}
+			a{
+				display: inline-block;
+			}
+			a:nth-of-type(odd){
+				float: none;
+				margin-right: 20px;
+			}
+			a:nth-of-type(even){
+				float: none;
+			}
+		}
+
+		section.room-save{
+			a{
+				position: static;
+				margin: 10px auto;
+			}
+		}
+		section.feeds-edit{
+			ul.caption{
+				display: none;
+			}
+			aside{
+				>div{
+					&:nth-child(3){
+						width: 240px;
+					}
+					&:nth-child(4){
+						border-top: none;
+						border-left: 1px #939393 solid;
+					}
+					&:nth-child(5){
+						border-top: none;
+					}
+				}
+				button{
+					margin:0;
+					width: 250px;
+				}
+			}
+		}
+	}
+
+	section.other{
+		display: none;
+	}
+
+	ul.pagg{
+		margin: 30px auto 35px auto;
+		&.other{
+			display: none;
+		}
+	}
+
+	section.history{
+		width:768px;
+		div.grey{
+			width:530px;
+		}
+		aside{
+			width: 248px;
+			margin: 30px 0 0 10px;
+			&:first-of-type{
+				margin-left: 0;
+			}
+			&:last-of-type{
+				display: none;
+			}
+			div.main-photo{
+				width: 248px;
+				height: 126px;
+				img{
+					width: 248px;
+				}
+			}
+			div.content{
+				padding: 15px 0 0 30px;
+				div.grey{
+					width: 190px;
+					display: block;
+				}
+				p{
+					a{
+						display: block;
+						float: none  !important;
+						margin-top: 8px;
+					}
+				}
+			}
+		}
+	}
+
+	footer{
+		>div{
+			aside>div{
+				@include end;
+			}
+			max-width:828px;
+			width:100%;
+			img[alt='logo']{
+				margin: 30px 35px 50px 0px;
+				display: table;
+				float:left;
+			}
+			p{
+				display: table;
+				max-width: 275px;
+				margin: 0;
+				padding-top: 50px;
+				font-size: 12px;
+			}
+			ul{
+				list-style:none;
+				padding: 0;
+				display: block;
+				li{
+					display: block;
+					float:left;
+					padding-left: 18px;
+					&:after{
+						content:'';
+						width: 0;
+						height: 14px;
+						border-left: 1px #eee solid;
+						margin-left: 18px;
+
+					}
+					&:last-of-type{
+						&:after{
+							border:none;
+						}
+					}
+					&:first-of-type{
+						padding: 0;
+					}
+					a, a:visited{
+						font-size: 12px;
+						color: #eee;
+						text-decoration: none;
+						&:hover{
+							text-decoration: none;
+							color: #63A4D6;
+						}
+					}
+				}
+			}
+		}
+		aside{
+			float: left;
+			@include end;
+			max-width:458px;
+		}
+		aside.social{
+			padding-top: 60px;
+			text-align: right;
+			button{
+				width: 200px;
+				margin-bottom: 10px;
+				@include fmedium;
+			}
+			img{
+				margin: 18px 0;
+				opacity: 0.5;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 828px){
+	main{
+		width: 768px;
+		padding: 0;
+	}
+}
+
+@media screen and (max-width: 785px){/*767*/
+	header{
+		height: 170px;
+		>div{
+			padding: 10px 10px 20px 15px;
+			height: 100%;
+			>a{
+				margin: 0;
+			}
+			nav:first-of-type{
+				position: absolute;
+				margin: 0;
+				right: 10px;
+				top: 40px;
+				button.btn-sm{
+					width:170px;
+				}
+			}
+			div.lang{
+				top:10px;
+				right: 10px;
+			}
+			div.input-group{
+				display: block;
+				position: absolute;
+				margin: 0 0 0 -167px;
+				left:50%;
+				top: 125px;
+				width:335px;
+				input[type='text']{
+					width:235px;
+				}
+			}
+		}
+	}
+
+	div.add-hotel{
+		div.modal-body{
+			textarea{
+				display: block;
+				width: 300px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			div.select-box{
+				width: 275px;
+				margin-left: auto;
+				margin-right: auto;
+				select.left, input.left{
+					margin-right: 0;
+				}
+			}
+			div.mixed1{
+				width: 220px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			div.mixed2{
+				button{
+					display: block;
+					margin-left: auto;
+					margin-right: auto;
+					margin-top: 15px;
+				}
+			}
+			div.mixed3{
+				width: 300px;
+				margin-left: auto;
+				margin-right: auto;
+				label{
+					span.right{
+						padding-left: 0;
+					}
+				}
+			}
+			div.room-check{
+				width: 300px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+		div.modal-footer{
+			button.btn{
+				display: block;
+				float: none;
+				margin: 10px auto;
+				&:last-of-type{
+					margin: 10px auto;
+					float: none !important;
+				}
+			}
+		}
+	}
+
+	div.slider{
+		width: 100%;
+		position: relative;
+		background: inherit;
+		height: 415px;
+
+		dialog{
+			width: 360px;
+			height: 321px;
+			margin-top: 15px;
+			margin-left: -180px;
+			div.stick{
+				display: none;
+			}
+
+			div.filter{
+				width:179px;
+				max-width: 179px;
+				height: 158px;
+				select{
+					margin-top: 4px;
+					width: 155px;
+				}
+			}
+			div.filter1{
+				padding: 30px 10px 10px 14px;
+			}
+			div.filter2{
+				padding: 30px 14px 10px 9px;
+			}
+			div.filter3{
+				padding: 0 10px 10px 14px;
+			}
+			div.filter4{
+				padding: 37px 14px 10px 14px;
+			}
+		}
+		button{
+			width:330px;
+			margin-left: -165px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.9);
+		}
+	}
+
+	div#view_feed, div#view_feed_empty, div#view_feed_re{
+
+		div.modal-footer{
+			button{
+
+				&:last-of-type{
+					margin-left: 0;
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+
+    div#modal_delete_hotel{
+        div.modal-footer{
+            a:last-of-type, button:first-of-type{
+                display: block;
+                margin: 10px auto;
+                float: none!important;
+                width: 170px;
+            }
+        }
+    }
+
+	main{
+		width: 360px;
+		padding: 0;
+		position: relative;
+		>div.main_head{
+			padding: 0 15px;
+			margin-top: 0;
+			width:360px;
+			position: relative;
+			>h1{
+				margin:0;
+				line-height: 24px;
+				display: block;
+				float:none;
+			}
+			>form{
+				margin: 30px 0 0 0;
+				width: 100%;
+				float:none;
+				select{
+					width:100%;
+					max-width: 100%;
+				}
+			}
+			>div.green{
+				position: absolute;
+				top: 40px;
+				left: 15px;
+				float: none;
+				width: 200px;
+			}
+			>div.grey{
+				width: 129px;
+				position: absolute;
+				top: 40px;
+				left: 215px;
+				float: none;
+			}
+			>div.greenf{
+				top:20px;
+			}
+			>div.greyf{
+				top:20px;
+			}
+		}
+		>div.green{
+			position: absolute;
+			top: 30px;
+			left: 15px;
+			float: none;
+			width: 200px;
+		}
+		>div.grey{
+			width: 129px;
+			position: absolute;
+			top: 30px;
+			left: 215px;
+			float: none;
+		}
+		>div.rooms-line1, div.rooms-line2{
+			top:65px;
+		}
+        section.adds-list{
+            margin-top: 30px;
+            width: 100%;
+            ul.caption{
+                display: none;
+            }
+            aside.add{
+                width: 100%;
+                margin-bottom: 30px;
+                div{
+                    margin: 2px 0 0;
+                    display: block;
+                    float: none;
+                    &:nth-child(1){
+                        width: 100%;
+                    }
+                    &:nth-child(2){
+                        width: 100%;
+                    }
+                    &:nth-child(3){
+                        width: 100%;
+                    }
+                }
+                >a.btn-default{
+                    width: 100%;
+                }
+            }
+        }
+		section.adds{
+			width:360px;
+			margin: 0 auto;
+			aside{
+				height: 100%;
+				div.photo{
+					max-width: 360px;
+					height: 200px;
+					float: none;
+					padding: 0 10px 0 10px;
+					img.images{
+						left: auto;
+						right: 20px;
+						top: 150px;
+					}
+				}
+				div.content{
+					width: 360px;
+					float: none;
+					padding: 20px 10px 20px 10px;
+					article{
+						padding: 5px 0;
+					}
+					div.grey{
+						width: 340px;
+						margin-top: 0;
+					}
+				}
+			}
+		}
+
+		section.book-adds, section.rooms{
+			width:360px;
+			margin: 0 auto;
+			aside{
+				&:first-of-type{
+					margin-top: 20px;
+				}
+				width:360px;
+				height: 520px;
+				border-radius: 0;
+				div.photo{
+					width:330px;
+					border-radius: 5px 5px 0 0;
+					margin:0 auto;
+					float:none;
+					img.images{
+						left: 300px;
+						top: 200px;
+					}
+					div.vip, div.top{
+						left: 27px;
+					}
+				}
+				div.content{
+					width: 360px;
+					padding: 5px 15px;
+					height: auto;
+					h3{
+						margin-left: 0px;
+					}
+					img[alt='beach'], img[alt='marker'], img[alt='phone'], img[alt='bath']{
+						margin-left: 0;
+					}
+					article{
+						height: 60px;
+						width: 330px;
+						padding: 0;
+					}
+					div.grey{
+						width:330px;
+						margin-left: 0;
+					}
+					div.details{
+						text-indent: 0;
+						a{
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+		section.rooms{
+			aside{
+				height: 550px;/*480px;*/
+				>div.content{
+					img{
+						margin-right: 1px;
+						margin-left: 10px;
+					}
+					img[alt='bath']{
+						margin-left: 12px;
+					}
+				}
+			}
+		}
+		section.hotel-view{
+			max-width: 100%;
+			/*min-height: 3650px;*/
+			aside.hotel-info, aside.room-info{
+				>h1{
+					/*position: absolute;
+					top: 1750px;
+					left: 20px;*/
+				}
+				>div{
+					/*position: absolute;
+					top: 1800px;*/
+
+					article{
+						/*position: absolute;
+						top: 700px;*/
+					}
+				}
+				form#feed_form{
+					max-width: 360px;
+					/*position: absolute;
+					top: 900px;*/
+					height: 330px;
+				}
+			}
+			aside.room-info{
+				>div{
+					img{
+						margin: 0 2px 0 0px;
+					}
+                    ul{
+                        li{
+                            img[alt='bed']{
+        						margin-left: 0;
+        					}
+        					img[alt='bath']{
+        						margin: 0 2px 0 12px;
+        					}
+                        }
+                    }
+			    }
+			}
+			aside.feeds{
+				/*position: absolute;
+				top: 3150px;
+				width: 360px;
+				height: 600px;*/
+				div.feed>p{
+					/*height: 60px;*/
+				}
+				.btn{
+					margin-left:150px;
+				}
+			}
+		}
+		section.actions{
+			width: 360px;
+			padding:0;
+			aside.photos{
+				/*position: absolute;
+				left:0;
+				top: 355px;*/
+				div.left{
+					float:none;
+				}
+				div.right{
+					float: none;
+				}
+				div.photo{
+					width: 360px;
+					height: 360px;
+				}
+			}
+			div.map{
+				/*position: absolute;
+					top: 2330px;*/
+				div#map{
+					width:360px;
+				}
+			}
+			>p{
+				/*position: absolute;
+				top: 2000px;*/
+				max-width: 360px;
+				width: 360px;
+			}
+			>a:first-of-type{
+				/*position: absolute;
+				top: 2060px;*/
+			}
+			>a:last-of-type{
+				/*position: absolute;
+				top: 2110px;*/
+			}
+			div.phone{
+				/*position: absolute;
+				top: 2160px;*/
+				max-width: 360px;
+				width: 360px;
+			}
+		}
+		section.hotel-edit{
+			width: 360px;
+		}
+		section.save{
+			a{
+				width: 360px;
+			}
+		}
+		section.hotel-edit1{
+			aside.hotel-menu, aside.info1, aside.info2, aside.about{
+				width: 360px;
+				float: none;
+				height: auto;
+				padding: 0;
+				margin: 0 0 30px 0;
+			}
+			aside.info1{
+				input.col-xs-12{
+					float: none;
+				}
+				label.text{
+					width: 220px;
+				}
+			}
+			aside.info2{
+				select{
+					width: 360px;
+				}
+				label.text{
+					width: 220px;
+				}
+			}
+			aside.other1, aside.other2, aside.other3{
+				width: 360px;
+				margin: 10px 0 0 0;
+				float: none;
+			}
+			aside.other2{
+				label{
+					select{
+						width: 360px;
+					}
+				}
+			}
+		}
+		section.hotel-photos{
+			aside.photos, aside.menu{
+				width: 360px;
+				float: none;
+			}
+			aside.photos{
+				ul{
+					li{
+						width: 360px;
+						height: 250px;
+						margin: 0 0 15px 0;
+					}
+				}
+			}
+		}
+		section.hotel-about{
+			width: 360px;
+			aside.about, aside.menu{
+				width: 360px;
+				float: none;
+			}
+			aside.about{
+				textarea{
+					width: 360px;
+				}
+			}
+			aside.menu{
+				menu{
+					a{
+						width: 360px;
+					}
+				}
+			}
+		}
+		section.hotel-feaches{
+			label{
+				display: block;
+				margin-left: 20px;
+			}
+			span.space{
+				display: block;
+				width: 100%;
+				height: 10px;
+			}
+		}
+		section.room-edit{
+			width: 360px;
+			aside.room-list{
+				min-height: 20px;
+				width: 360px;
+				padding-left: 50px;
+				ul{
+					li{
+						width: 250px;
+					}
+				}
+			}
+			aside.room-info{
+				width: 360px;
+				padding-left: 50px;
+				padding-right: 60px;
+				height: 100%;
+				label.small{
+					select{
+						width: 250px;
+					}
+				}
+			}
+			aside.booking{
+				width: 360px;
+				padding-left: 50px;
+				height: initial;
+				min-height: 210px;
+				margin-bottom: 20px;
+				h2{
+					width: 245px;
+				}
+			}
+			aside.features{
+				width: 360px;
+				height: auto;
+				h3{
+					margin-left: 50px;
+				}
+				label{
+					display: block;
+					width: 300px;
+					margin-left: 50px;
+				}
+				textarea{
+					width: 360px;
+				}
+			}
+		}
+		section.room-photos{
+			width: 360px;
+			div{
+				width: 360px;
+				height: 200px;
+			}
+			a{
+				display: inline-block;
+				margin: 0;
+			}
+			a:nth-of-type(odd){
+				margin: 0 16px 0 0;
+			}
+		}
+		section.feeds-edit{
+			margin-top: 20px;
+			aside{
+				margin-bottom: 20px;
+				>div{
+					&:nth-child(1){
+						width: 120px;
+					}
+					&:nth-child(2){
+						width: 240px;
+					}
+					&:nth-child(3){
+						width: 360px;
+						border-left: 1px #939393 solid;
+						border-top: none;
+					}
+					&:nth-child(4){
+						width: 360px;
+					}
+					&:nth-child(5){
+						border-left: 1px #939393 solid;
+					}
+
+				}
+				>button{
+						/*margin-top: 15px;*/
+						height: 60px;
+						line-height: 3em;
+					}
+			}
+		}
+	}
+
+	ul.pagg{
+		margin: 30px auto;
+	}
+
+	section.history{
+		display: none;
+	}
+
+	footer{
+		position: relative;
+		max-height: 300px;
+		overflow: hidden;
+		>div{
+			width:100%;
+			height: 100%;
+		    position: relative;
+		    margin: 0 auto;
+		    padding-left: 15px;
+		    padding-right: 15px;
+			}
+		aside{
+			width: 150px;
+			ul{
+				display: none;
+				position: static;
+			}
+			>div>p{
+				padding: 0;
+				display: block;
+				position: absolute;
+				top: 145px;
+				left: 50%;
+				margin-left: -137px;
+				width: 330px;
+			}
+		}
+		aside.social{
+			width: 155px;
+			padding-top: 40px;
+			button{
+				width: 155px;
+				font-size: 13px;
+			}
+			>div{
+				position: absolute;
+				margin: 0 0 0 -127px;
+				top: 210px;
+				left: 50%;
+			}
+			small{
+				display: block;
+				position: absolute;
+				top: 255px;
+				left: 50%;
+				margin: 0 0 0 -90px;
+			}
+		}
+	}
+}
